@@ -12,7 +12,7 @@
     		lat DOUBLE, 
     		lon DOUBLE, 
     		created DATETIME, 
-    		trip INTEGER
+    		trip INTEGER,
     		FOREIGN KEY(trip) REFERENCES trip(tripid)
     	);
 	</string>
