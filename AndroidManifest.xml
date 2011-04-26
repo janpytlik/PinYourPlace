@@ -16,7 +16,10 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="DisplayMap" android:label="@string/map"/>
+		<activity android:name=".DisplayMap" android:label="@string/map"/>
+		<activity android:name=".Home"/>
+		<activity android:name=".History"/>
+		<activity android:name=".Settings"/>
 
 	</application>
 </manifest>

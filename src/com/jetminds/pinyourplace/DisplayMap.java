@@ -77,6 +77,8 @@ public class DisplayMap extends MapActivity {
 		@Override
 		public void onLocationChanged(Location loc) {
 			if (loc != null) {
+				
+				System.out.println(loc.getSpeed());
 
                 actualLatitude = loc.getLatitude();
                 actualLongitute = loc.getLongitude();
