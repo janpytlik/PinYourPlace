@@ -1,9 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:id="@+id/settingsTabLayout">
+	android:orientation="vertical" android:id="@+id/settingsTabLayout" android:layout_height="wrap_content" android:layout_width="wrap_content">
+	
+	<TextView
+        android:id="@+id/credentialsLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="15sp"        
+        android:text="Credentials"/>
 
-		<TextView android:id="@+id/description" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="Settings" android:layout_centerHorizontal="true"/>	
+	<LinearLayout android:id="@+id/userBox" 
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="10dip"
+	    android:layout_below="@id/credentialsLabel">
 
+		<TextView
+	        android:id="@+id/usernameLabel"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.5"
+	        android:text="Username"
+	        />
+		<EditText 
+			android:id="@+id/usernameText" 
+			android:text="user" 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent"
+			android:layout_weight="0.5" 
+			android:inputType="textPersonName" 
+			/> 
+	</LinearLayout>  
+
+	<LinearLayout android:id="@+id/passBox" 
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/userBox">
+
+		<TextView
+        	android:id="@+id/passLabel"
+        	android:layout_height="wrap_content"
+        	android:layout_width="fill_parent"
+        	android:layout_weight="1.5"
+        	android:text="Password"
+        	/>
+        
+		<EditText 
+			android:id="@+id/passText" 		
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent"
+			android:layout_weight="0.5" 
+			android:text="pass" 
+			android:inputType="textPersonName" 
+        	android:password="true"
+			/>  
+    </LinearLayout>
+
+	<TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:text="..."
+        android:textColor="#00FF00"
+        android:layout_below="@id/passBox"/>
+
+	<LinearLayout android:id="@+id/buttonBox"
+	android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/statusLabel">
+		<Button
+	        android:id="@+id/loginButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"	        
+	        android:text="Login"	        
+	        />
+	
+		<Button
+	        android:id="@+id/registerButton"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"	        
+	        android:text="Register"/>
+	</LinearLayout>
+	
+	<TextView
+        android:id="@+id/synchronizationLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Synchronization"
+        android:paddingTop="50dip"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_below="@id/buttonBox"/>
+	
+	<LinearLayout android:id="@+id/syncBox"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="10dip"
+	    android:layout_below="@id/synchronizationLabel">
+
+		<TextView
+        	android:id="@+id/automaticLabel"
+        	android:layout_height="wrap_content"
+        	android:layout_width="fill_parent"
+        	android:layout_weight="0.5"
+        	android:text="Automatic"/>
+
+		<ToggleButton 
+			android:id="@+id/automaticSyncButton" 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent"
+			android:layout_weight="1.5"  
+		/>
+	</LinearLayout>	
+	          
 </RelativeLayout>
