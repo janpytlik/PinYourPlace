@@ -2,6 +2,7 @@ package com.jetminds.pinyourplace;
 
 import java.sql.SQLException;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -22,15 +23,23 @@ public class DBAdapter {
 		db = dbHelper.getWritableDatabase();
 		return this;
 	}
+	
+	public void startTrip() {
+		ContentValues initialValues = new ContentValues();
+//        initialValues.put(context.getString(R.string.), trip.getName());
+//        initialValues.put(TRIP_DESCRIPTION, trip.getDescription());
+//        return db.insert(TRACK_TABLE_NAME, null, initialValues);
+//
+//		
+//		db.update(table, values, whereClause, whereArgs)
+	}
 
 	public void close() {
 		dbHelper.close();
 	}
-
+	
 	public class DBOpenHelper extends SQLiteOpenHelper {
 
-		public static final String DATABASE_NAME = "PYP";
-		
 		private static final int DATABASE_VERSION = 2;
 		
 		DBOpenHelper(Context context) {
