@@ -19,28 +19,51 @@ public class DBAdapter {
 		dbHelper = new DBOpenHelper(context);
 	}
 
+	/**
+	 * Open db connection
+	 * @return
+	 * @throws SQLException
+	 */
 	public DBAdapter open() throws SQLException {
 		db = dbHelper.getWritableDatabase();
 		return this;
 	}
 	
-	public void startTrip() {
-		ContentValues initialValues = new ContentValues();
-//        initialValues.put(context.getString(R.string.), trip.getName());
-//        initialValues.put(TRIP_DESCRIPTION, trip.getDescription());
-//        return db.insert(TRACK_TABLE_NAME, null, initialValues);
-//
-//		
-//		db.update(table, values, whereClause, whereArgs)
+	/**
+	 * Creates a new unnamed trip
+	 * @return id of a trip
+	 */
+	public long startTrip() {
+		ContentValues values = new ContentValues();
+		values.put(context.getString(R.string.db_trip_name), context.getString(R.string.unsaved_trip));
+		return db.insert(context.getString(R.string.db_table_trip), null, values);
 	}
+	
+	/**
+	 * Saves current location of trip
+	 * @param tripId current trip
+	 * @param longitude
+	 * @param lattitude
+	 */
+	public void saveTripLocation(long tripId, double longitude, double lattitude) {
+		ContentValues values = new ContentValues();
+		values.put(context.getString(R.string.db_location_trip), tripId);
+		values.put(context.getString(R.string.db_location_lon), longitude);
+		values.put(context.getString(R.string.db_location_lat), lattitude);
+		values.put(context.getString(R.string.db_location_created), System.currentTimeMillis());
+		db.insert(context.getString(R.string.db_table_location), null, values);
+	}	
 
+	/**
+	 * Close db connection
+	 */
 	public void close() {
 		dbHelper.close();
 	}
 	
 	public class DBOpenHelper extends SQLiteOpenHelper {
 
-		private static final int DATABASE_VERSION = 2;
+		private static final int DATABASE_VERSION = 1;
 		
 		DBOpenHelper(Context context) {
 	        super(context, context.getString(R.string.db_name), null, DATABASE_VERSION);

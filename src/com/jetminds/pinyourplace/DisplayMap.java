@@ -33,6 +33,7 @@ public class DisplayMap extends MapActivity {
 	private MapController mapController;
 	private List<GeoPoint> points = new ArrayList<GeoPoint>();
 	private DBAdapter dbAdapter;
+	private long tripId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class DisplayMap extends MapActivity {
 		dbAdapter = new DBAdapter(this);
 		try {
 			dbAdapter.open();
+			tripId = dbAdapter.startTrip();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,9 +82,13 @@ public class DisplayMap extends MapActivity {
 			if (loc != null) {
 				
 				System.out.println(loc.getSpeed());
+				
+				
 
                 actualLatitude = loc.getLatitude();
                 actualLongitute = loc.getLongitude();
+                // save location into db
+                dbAdapter.saveTripLocation(tripId, actualLatitude, actualLongitute);
 
 	            if (lastLatitude != 0 || lastLongitute != 0) {
 	            	//ask google for path
