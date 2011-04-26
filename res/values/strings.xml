@@ -4,4 +4,23 @@
     <string name="app_name">PinYourPlace</string>
     <string name="goButton">GO !</string>
     <string name="map">Map</string>
+    
+    <!-- Init DB -->
+    <string name="db_name">pinyourplace</string>
+    <string name="db_create_table_location">
+    	CREATE TABLE location (
+    		lat DOUBLE, 
+    		lon DOUBLE, 
+    		created DATETIME, 
+    		trip INTEGER
+    		FOREIGN KEY(trip) REFERENCES trip(tripid)
+    	);
+	</string>
+    <string name="db_create_table_trip">
+    	CREATE TABLE trip (
+    		tripid INTEGER PRIMARY KEY, 
+    		name TEXT, 
+    		descr TEXT
+    	);
+    </string>
 </resources>

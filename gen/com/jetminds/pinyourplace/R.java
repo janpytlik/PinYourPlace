@@ -24,6 +24,11 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040001;
+        public static final int db_create_table_location=0x7f040005;
+        public static final int db_create_table_trip=0x7f040006;
+        /**  Init DB 
+         */
+        public static final int db_name=0x7f040004;
         public static final int goButton=0x7f040002;
         public static final int hello=0x7f040000;
         public static final int map=0x7f040003;
