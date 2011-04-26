@@ -41,7 +41,7 @@ public class DisplayMap extends MapActivity {
 		mapController = mapView.getController();
 		
 		
-		// handle GPS
+		// handle GPS		
 		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		MyLocationListener locationListener = new MyLocationListener();
 		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
@@ -64,6 +64,8 @@ public class DisplayMap extends MapActivity {
 		@Override
 		public void onLocationChanged(Location loc) {
 			if (loc != null) {
+				
+				System.out.println(loc.getSpeed());
 
                 actualLatitude = loc.getLatitude();
                 actualLongitute = loc.getLongitude();
