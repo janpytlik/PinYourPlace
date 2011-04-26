@@ -18,7 +18,7 @@ public class PinYourPlace extends Activity {
 		goButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View arg0) {
-				Intent i = new Intent(PinYourPlace.this, DisplayMap.class);
+				Intent i = new Intent(PinYourPlace.this, HistoryActivity.class);
 				startActivity(i);
 			}
 
