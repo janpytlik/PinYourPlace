@@ -15,12 +15,15 @@
     <string name="db_table_trip">trip</string>
     <string name="db_trip_name">name</string>
     <string name="db_trip_desc">desc</string>
+    <string name="db_trip_distance">distance</string>
+    <string name="db_trip_created">created</string>
     <string name="db_location_trip">trip</string>
     <string name="db_location_lat">lat</string>
     <string name="db_location_lon">lon</string>
     <string name="db_location_created">created</string>
     <string name="db_create_table_location">
     	CREATE TABLE location (
+    		_id INTEGER PRIMARY KEY AUTOINCREMENT,
     		lat DOUBLE, 
     		lon DOUBLE, 
     		created DATETIME, 
@@ -30,9 +33,11 @@
 	</string>
     <string name="db_create_table_trip">
     	CREATE TABLE trip (
-    		tripid INTEGER PRIMARY KEY AUTOINCREMENT, 
+    		tripid INTEGER PRIMARY KEY AUTOINCREMENT,
     		name TEXT, 
-    		descr TEXT
+    		desc TEXT,
+    		created DATETIME, 
+    		distance REAL DEFAULT 0
     	);
     </string>
 </resources>
