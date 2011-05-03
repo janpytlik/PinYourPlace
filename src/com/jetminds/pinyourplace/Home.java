@@ -6,22 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PinYourPlace extends Activity {
-	/** Called when the activity is first created. */
-	@Override
+public class Home extends Activity {
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.hometab);
 
 		// handle GO button click
 		Button goButton = (Button) this.findViewById(R.id.goButton);
 		goButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View arg0) {
-				Intent i = new Intent(PinYourPlace.this, HistoryActivity.class);
+				Intent i = new Intent(Home.this, DisplayMap.class);
 				startActivity(i);
 			}
 
 		});
-	}
+	} 
 }

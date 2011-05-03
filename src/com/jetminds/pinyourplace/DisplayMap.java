@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class DisplayMap extends MapActivity {
 	private MapView mapView;
 	private MapController mapController;
 	private List<GeoPoint> points = new ArrayList<GeoPoint>();
+	private DBAdapter dbAdapter;
+	private long tripId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,13 +42,26 @@ public class DisplayMap extends MapActivity {
 		mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
 		mapController = mapView.getController();
-		
-		
 		// handle GPS
 		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		dbAdapter = new DBAdapter(this);
+		try {
+			dbAdapter.open();
+			tripId = dbAdapter.startTrip();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		MyLocationListener locationListener = new MyLocationListener();
 		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
+	}
+	
+	@Override
+	protected void onDestroy() {
+		dbAdapter.close();
+		super.onDestroy();
 	}
 		
     @Override
@@ -64,9 +80,15 @@ public class DisplayMap extends MapActivity {
 		@Override
 		public void onLocationChanged(Location loc) {
 			if (loc != null) {
+				
+				System.out.println(loc.getSpeed());
+				
+				
 
                 actualLatitude = loc.getLatitude();
                 actualLongitute = loc.getLongitude();
+                // save location into db
+                dbAdapter.saveTripLocation(tripId, actualLatitude, actualLongitute);
 
 	            if (lastLatitude != 0 || lastLongitute != 0) {
 	            	//ask google for path

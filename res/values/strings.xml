@@ -4,4 +4,35 @@
     <string name="app_name">PinYourPlace</string>
     <string name="goButton">GO !</string>
     <string name="map">Map</string>
+    
+    
+    <!-- Default values -->
+    <string name="unsaved_trip">Unsaved trip</string>
+    
+    <!-- Init DB -->
+    <string name="db_name">pinyourplace</string>
+    <string name="db_table_location">location</string>
+    <string name="db_table_trip">trip</string>
+    <string name="db_trip_name">name</string>
+    <string name="db_trip_desc">desc</string>
+    <string name="db_location_trip">trip</string>
+    <string name="db_location_lat">lat</string>
+    <string name="db_location_lon">lon</string>
+    <string name="db_location_created">created</string>
+    <string name="db_create_table_location">
+    	CREATE TABLE location (
+    		lat DOUBLE, 
+    		lon DOUBLE, 
+    		created DATETIME, 
+    		trip INTEGER,
+    		FOREIGN KEY(trip) REFERENCES trip(tripid)
+    	);
+	</string>
+    <string name="db_create_table_trip">
+    	CREATE TABLE trip (
+    		tripid INTEGER PRIMARY KEY AUTOINCREMENT, 
+    		name TEXT, 
+    		descr TEXT
+    	);
+    </string>
 </resources>
