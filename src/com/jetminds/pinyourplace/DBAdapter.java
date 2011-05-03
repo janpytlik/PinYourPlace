@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,6 +37,7 @@ public class DBAdapter {
 	public long startTrip() {
 		ContentValues values = new ContentValues();
 		values.put(context.getString(R.string.db_trip_name), context.getString(R.string.unsaved_trip));
+		values.put(context.getString(R.string.db_trip_created), System.currentTimeMillis());
 		return db.insert(context.getString(R.string.db_table_trip), null, values);
 	}
 	
@@ -52,6 +54,17 @@ public class DBAdapter {
 		values.put(context.getString(R.string.db_location_lat), lattitude);
 		values.put(context.getString(R.string.db_location_created), System.currentTimeMillis());
 		db.insert(context.getString(R.string.db_table_location), null, values);
+	}	
+
+	/**
+	 * Get list of trips
+	 * @return Cursor with trips
+	 */
+	public Cursor getTripList() {
+		String[] columnList = new String[] { context.getString(R.string.db_trip_name),context.getString(R.string.db_trip_distance),context.getString(R.string.db_trip_created), "tripid as _id" };
+		// TODO: SQL limit
+		// TODO: rest of query attributes
+		return db.query(context.getString(R.string.db_table_trip), columnList, null, null, null, null, null);
 	}	
 
 	/**
