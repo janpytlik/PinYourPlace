@@ -26,31 +26,55 @@ public final class R {
         public static final int icon=0x7f02000c;
     }
     public static final class id {
-        public static final int goButton=0x7f050003;
+        public static final int automaticLabel=0x7f050016;
+        public static final int automaticSyncButton=0x7f050017;
+        public static final int buttonBox=0x7f050011;
+        public static final int created_entry=0x7f050003;
+        public static final int credentialsLabel=0x7f050009;
+        public static final int description=0x7f050006;
+        public static final int goButton=0x7f050007;
+        public static final int historyTabLayout=0x7f050005;
+        public static final int loginButton=0x7f050012;
         public static final int main=0x7f050000;
         public static final int mapview=0x7f050001;
-        public static final int myTableLayout=0x7f050002;
+        public static final int name_entry=0x7f050002;
+        public static final int number_entry=0x7f050004;
+        public static final int passBox=0x7f05000d;
+        public static final int passLabel=0x7f05000e;
+        public static final int passText=0x7f05000f;
+        public static final int registerButton=0x7f050013;
+        public static final int settingsTabLayout=0x7f050008;
+        public static final int statusLabel=0x7f050010;
+        public static final int syncBox=0x7f050015;
+        public static final int synchronizationLabel=0x7f050014;
+        public static final int userBox=0x7f05000a;
+        public static final int usernameLabel=0x7f05000b;
+        public static final int usernameText=0x7f05000c;
     }
     public static final class layout {
         public static final int displaymap=0x7f030000;
-        public static final int historylistview=0x7f030001;
-        public static final int main=0x7f030002;
-
+        public static final int historyrow=0x7f030001;
+        public static final int historytab=0x7f030002;
+        public static final int hometab=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int settingstab=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
-        public static final int db_create_table_location=0x7f04000e;
-        public static final int db_create_table_trip=0x7f04000f;
-        public static final int db_location_created=0x7f04000d;
-        public static final int db_location_lat=0x7f04000b;
-        public static final int db_location_lon=0x7f04000c;
-        public static final int db_location_trip=0x7f04000a;
+        public static final int db_create_table_location=0x7f040010;
+        public static final int db_create_table_trip=0x7f040011;
+        public static final int db_location_created=0x7f04000f;
+        public static final int db_location_lat=0x7f04000d;
+        public static final int db_location_lon=0x7f04000e;
+        public static final int db_location_trip=0x7f04000c;
         /**  Init DB 
          */
         public static final int db_name=0x7f040005;
         public static final int db_table_location=0x7f040006;
         public static final int db_table_trip=0x7f040007;
+        public static final int db_trip_created=0x7f04000b;
         public static final int db_trip_desc=0x7f040009;
+        public static final int db_trip_distance=0x7f04000a;
         public static final int db_trip_name=0x7f040008;
         public static final int goButton=0x7f040002;
         public static final int hello=0x7f040000;
