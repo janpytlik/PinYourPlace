@@ -11,7 +11,7 @@ public class Home extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hometab);
-
+		
 		// handle GO button click
 		Button goButton = (Button) this.findViewById(R.id.goButton);
 		goButton.setOnClickListener(new View.OnClickListener() {

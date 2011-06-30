@@ -4,17 +4,22 @@
 	android:id="@+id/historyTabLayout" android:orientation="vertical">
 	
 	<TextView android:id="@+id/description" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="!!!HOME!!!" android:layout_centerHorizontal="true"/>	
+		android:layout_height="wrap_content" android:text="!!!HOME!!!" android:layout_centerHorizontal="true"		
+    	android:layout_gravity="center"
+		/>	
 	
 <!-- 	<Button android:text="@string/goButton" android:id="@+id/goButton" android:layout_width="wrap_content"  -->
 <!-- 		android:layout_height="wrap_content" android:drawableRight="@drawable/ic_tab_settings_selected"/> -->
+ 
+	<Button android:padding="10dip" 
+		android:id="@+id/goButton" 
+		android:layout_width="150px" 
 		
-	<Button
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/go_button"
-        android:layout_centerHorizontal="true" />
+		android:background="@drawable/buttongo"
+		android:layout_marginBottom="20dip"
+		android:layout_height="60px"    	
+    	android:layout_gravity="center_horizontal|bottom"		 
+	/>
+
 	
 </RelativeLayout>
